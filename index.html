@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>calculadora</title>
+</head>
+<body>
+    <input type="text" id="resultado" class="container" disabled >
+    
+        <div class="caja">
+            <tr class="interno">
+                <td><button onclick="agregarNumero('7')" class="numero">7</button></td>
+                <td><button onclick="agregarNumero('8')" class="numero">8</button></td>
+                <td><button onclick="agregarNumero('9')" class="numero">9</button></td>
+                <td> <button onclick="operacion('/')" class="divicion">/</button></td>
+            </tr>
+            <tr class="interno">
+                
+                <td><button onclick="agregarNumero('4')" class="numero">4</button></td>
+                <td><button onclick="agregarNumero('5')" class="numero">5</button></td>
+                <td ><button  onclick="agregarNumero('6') "class="numero">6</button></td>
+                
+                
+                <td><button onclick="operacion('*')" class="multiplicar">*</button></td>
+            </tr>
+            <tr class="interno">
+                <td> <button onclick="agregarNumero('1')" class="numero">1</button></td>
+                <td><button onclick="agregarNumero('2')" class="numero">2</button></td>
+                <td> <button onclick="agregarNumero('3')" class="numero">3</button></td>
+              
+                
+                <td>  <button onclick="operacion('-')" class="resta">-</button></td>
+
+            </tr>
+                              
+            <tr class="interno">
+                <td><button onclick="borrar()"class="vacio">CE</button></td>
+                <td><button onclick="agregarNumero('0')" class="numero">0</button></td>
+                <td>  <button onclick="operacion('+')" class="suma">+</button></td>
+                <td><button onclick="calcular()" class="calcular">=</button></td>
+            </tr>
+         </div>
+    
+<script>
+   var numero1 = 0;
+		var operador = "";
+		
+		function agregarNumero(numero){
+			var resultado = document.getElementById("resultado");
+			resultado.value += numero;
+		}
+		
+		function borrar(){
+			var resultado = document.getElementById("resultado");
+			resultado.value = "";
+			numero1 = 0;
+			operador = "";
+		}
+		
+		function operacion(op){
+			var resultado = document.getElementById("resultado");
+			numero1 = parseInt(resultado.value);
+			resultado.value = "";
+			operador = op;
+		}
+		
+        function calcular(){
+			var resultado = document.getElementById("resultado");
+			var numero2 = parseInt(resultado.value);
+			
+			if(operador == "+"){
+				resultado.value = numero1 + numero2;
+			} else if(operador == "-"){
+				resultado.value = numero1 - numero2;
+			} else if(operador == "*"){
+				resultado.value = numero1 * numero2;
+			} else if(operador == "/"){
+				resultado.value = numero1 / numero2;
+			}
+			
+			numero1 = 0;
+			operador = "";
+		}
+
+      var x = 1;
+      if (x > 2 ){
+        console.log( "verdaderaaaaaaa")
+               
+      }
+      else {
+            console.log( "no es menor");
+
+        }
+</script>
+     
+
+   
+            
+  
+    
+</body>
+</html>
